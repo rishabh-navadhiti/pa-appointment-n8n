@@ -33,6 +33,8 @@ This document provides comprehensive technical documentation for an n8n-based au
 
 ### Overview
 
+![N8N workflow](./images/workflow.png)
+
 This workflow operates as a **dual-entry-point state machine** with two distinct execution paths that share a common AI agent core:
 
 ```
@@ -98,6 +100,8 @@ The workflow is split into two triggers because:
 7. Agent sends WhatsApp message with available slots
 8. Execution ends
 
+![N8N Flow 1](./images/flow-1.png)
+
 **Path 2 Execution (Patient Reply):**
 1. Patient responds to WhatsApp message
 2. Twilio webhook fires and triggers workflow
@@ -108,6 +112,8 @@ The workflow is split into two triggers because:
 7. Agent creates Google Calendar event
 8. Agent sends WhatsApp confirmation
 9. Execution ends
+
+![N8N Flow 1](./images/flow-2.png)
 
 **Critical Insight:** The two executions are **independent processes** connected only through the Simple Memory node, which persists data between executions using the patient's phone number as the session key.
 
